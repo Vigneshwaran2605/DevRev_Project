@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./Project1/backend/backend/api",
+        "./Project1/backend/api"
+    ]
+}
