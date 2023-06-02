@@ -28,7 +28,7 @@
             <a class="navbar-brand" href="{% url 'home' %}">AEROBOOK</a>
           </div>
           <ul class="nav navbar-nav">
-            <li ><a href="">Home</a></li>
+            <li ><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'search_flights' %}">Search and Book</a></li>
             <li class="active"><a href="{% url 'show_flights_user' %}">Show Flight</a></li>
             <li><a href="{% url 'my_bookings' %}">My Bookings</a></li>
