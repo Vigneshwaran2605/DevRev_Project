@@ -23,7 +23,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.home, name='home'),
     path('register/', user_views.register, name='register'),
-  
+    path('search_flights/', user_views.search_flights, name='search_flights'),
+    path('book_flight/<int:flight_id>/', user_views.book_flight, name='book_flight'),
+    path('my_bookings/', user_views.my_bookings, name='my_bookings'),
+    path('add_flight/', user_views.add_flight, name='add_flight'),
+    path('show_flights/', user_views.show_flights, name='show_flights'),
+    path('show_flights_user/', user_views.show_flights_user, name='show_flights_user'),
+    path('remove_flight/', user_views.remove_flight, name='remove_flight'),
+    path('view_bookings/', user_views.view_bookings, name='view_bookings'),
+    path('cancel_flight/', user_views.cancel_flight, name='cancel_flight'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ]
+

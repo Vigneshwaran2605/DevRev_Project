@@ -1,17 +1,63 @@
-<h3>Register here</h3>
-<hr>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function showSuccessMessage() {
+          alert("Registered successfully!");
+        }
+      </script>
+    <style>
+        .button {
+            background-color: #f4511e;
+            border: none;
+            color: white;
+            padding: 6px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 2px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          
+          .button:hover {opacity: 1}
+        </style>
+</head>
+<div class="alert alert-info" role="alert">
 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">AEROBOOK</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+    </nav>
+<div style="margin: 0 auto; text-align: center;"><h4>
+<h3>REGISTERATION</h3>
 <form action="" method="POST">
     {% csrf_token %}
 
     {% for field in form %}
         <div>
-            <p>{{ field.label }}: <br> {{ field }}</p> 
+            <p>{{ field.label }}:  {{ field }}</p> 
 
             {% for error in field.errors %}
                 <small style="color: red">{{ error }}</small>
             {% endfor %}
         </div>
     {% endfor %}
-    <button type="submit">Register</button>
+    <button type="submit" class="button" onclick="showSuccessMessage()">Register</button>
 </form>
+</h4></div>

@@ -1,0 +1,77 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+      function showConfirmation() {
+        // Display the confirmation message
+        var confirmed = confirm("Are you sure you want to add this flight?");
+    
+        // Submit the form if the user confirms
+        if (confirmed) {
+          document.getElementById("flightForm").submit();
+        }
+      }
+    </script>
+    <script>
+        function showSuccessMessage() {
+          alert("Removed successfully!");
+        }
+      </script>
+    <style>
+        .button {
+            background-color: #f4511e;
+            border: none;
+            color: white;
+            padding: 6px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 2px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          
+          .button:hover {opacity: 1}
+        </style>
+  </head>
+  
+  <div class="alert alert-info" role="alert">
+  
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">AEROBOOK</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'add_flight' %}">Add Flight</a></li>
+            <li><a href="{% url 'view_bookings' %}">View Bookings</a></li>
+            <li class="active"><a href="{% url 'remove_flight' %}">Remove Flight</a></li>
+            <li><a href="{% url 'show_flights' %}">Show Flight</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+    </nav>
+<!-- users/remove_flight.html -->
+<div style="margin: 0 auto; text-align: center;">
+<h3><b>Remove Flight</b></h3>
+<form method="POST" action="{% url 'remove_flight' %}">
+  {% csrf_token %}
+  <h4><label for="flight_id">Flight ID:</label>
+  <select name="flight_id" id="flight_id" style="width: 200px;">
+    {% for flight in flights %}
+      <option width="200px" value="{{ flight.id }}">{{ flight.id }}</option>
+    {% endfor %}
+  </select></h4><br>
+  <button class="button" type="submit" onclick="showSuccessMessage()">Remove Flight</button>
+</form>
+</div>

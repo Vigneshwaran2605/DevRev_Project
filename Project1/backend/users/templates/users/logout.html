@@ -1,12 +1,29 @@
-{% extends 'users/home.html' %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="alert alert-info" role="alert">
 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">AEROBOOK</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' %}">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+    </nav>
 {% block content %}
     <br>
     <div class="alert alert-success" role="alert">
         <h2 style="text-align: center;">Logged out!</h2>
     </div>
-
-    <h3>Login again?</h3>
-    <a href="{% url 'login' %}">---> Login</a> <br>
-    <a href="{% url 'home' %}"><--- Or go back to home.</a>
 {% endblock content %}

@@ -1,0 +1,76 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .button {
+        background-color: #f4511e;
+        border: none;
+        color: white;
+        padding: 6px 20px;
+        text-align: center;
+        font-size: 16px;
+        margin: 2px 2px;
+        opacity: 0.6;
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      .button:hover {opacity: 1}
+    </style>
+</head>
+
+
+<div class="alert alert-info" role="alert">
+
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'home' %}">AEROBOOK</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li class="active"><a href="{% url 'search_flights' %}">Search and Book</a></li>
+          <li><a href="{% url 'show_flights_user' %}">Show Flight</a></li>
+          <li><a href="{% url 'my_bookings' %}">My Bookings</a></li>
+          <li><a href="{% url 'cancel_flight' %}">Cancel Flight</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+  </nav>
+
+  <div style="margin: 0 auto; text-align: center;">
+<!-- users/flight_search.html -->
+<h2>Flight Search</h2>
+<form method="POST">
+  {% csrf_token %}
+  <!-- Add input fields for date and time -->
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date">
+
+  <label for="time">Time:</label>
+  <input type="time" id="time" name="time"><br>
+  <button type="submit" class="button" >Search Flights</button>
+</form>
+<!-- Display the list of flights -->
+{% for flight in flights %}
+  <!-- Display flight details -->
+  <p>ID: {{ flight.id }}</p>
+  <p>Date: {{ flight.date }}</p>
+  <p>Time: {{ flight.time }}</p>
+  <p>Seats Available: {{ flight.available_seats }}</p>
+  <p>Yes, Flight is available on this date and time</p>
+  <button type="submit" class="button" ><a style="color: inherit; text-decoration: none;" href="{% url 'book_flight' flight.id %}">Book Flight</a><br>
+  </button>  
+    {% empty %}
+  <p>No flights available.</p>
+{% endfor %}
+</div>

@@ -1,0 +1,17 @@
+<!-- users/book_flight.html -->
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Book Flight</h1>
+  <p>Flight ID: {{ flight.id }}</p>
+  <p>Available Seats: {{ flight.available_seats }}</p>
+
+  {% if flight.available_seats > 0 %}
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Book Flight</button>
+    </form>
+  {% else %}
+    <p>No seats available on this flight.</p>
+  {% endif %}
+{% endblock %}
