@@ -34,8 +34,8 @@ seat count is 60)
 
 # Features of the Flight Ticket Booking(AEROBOOK):-
 
-1. Login Page -> Enter username and password for sigin and there is seperate login for admin
-2. Signup Page -> Enter details for registeraccount
+1. Login Page -> Enter username and password for sigin and there is seperate login for admin.
+2. Signup Page -> Enter details to register account.
 3. Logout -> Signout from the account.
 
 ## User Side
@@ -52,4 +52,20 @@ seat count is 60)
 2. Remove Flight -> Remove Flight by entering Flight ID.
 3. View Bookings -> View all the bookings made to the specific Flight ID , it list as the username and seats booked.
 4. Show Flight -> Show the list of all the flights.
+# OUTPUT IMAGES
+
+## Home Page
+![Home](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/e9e00dcf-5736-4178-b7c2-98b55977646b)
+![Login Register](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/07b29ad9-106a-4afe-a40a-737375aeb08a)
+
+## User Home
+![User_home](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/7082f312-e45c-47f1-8359-000af366e874)
+## User Functions
+![User_side](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/e4c50fe7-8082-48d9-b423-986590c86155)
+
+## Admin Home
+![Admin_home](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/cdb3c74e-93ee-418b-8cfb-0bb18484365f)
+## Admin Functions
+![Admin_side](https://github.com/Vigneshwaran2605/DevRev_Project/assets/91144302/8a866594-314e-4b28-b09e-9b42601b5332)
+
 
